@@ -1,6 +1,11 @@
-const input = 1;
+const input = 13;
+let remainingDigits = input;
 let digitalSum = 0;
+let digit = 0;
 
-digitalSum = digitalSum + input;
+digit = remainingDigits%10;
+digitalSum = digitalSum + digit;
+remainingDigits = remainingDigits - digit;
+remainingDigits = remainingDigits/10;
 
 console.log("The Digital Sum of",input,"is",digitalSum);
