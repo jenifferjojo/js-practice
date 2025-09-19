@@ -1,1 +1,3 @@
-console.log("The sum of digits of 1 is 1");
+const input = 1;
+
+console.log("The Digital Sum of",input,"is 1");
