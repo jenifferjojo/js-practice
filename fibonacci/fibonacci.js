@@ -1,21 +1,9 @@
-const numberOfTerms = 4;
+const numberOfTerms = 3;
 let nextTermValue = 1;
 let currentTermValue = 0;
 
-console.log(currentTermValue);
-nextTermValue = nextTermValue + currentTermValue;
-currentTermValue = nextTermValue - currentTermValue;
-
-
-console.log(currentTermValue);
-nextTermValue = nextTermValue + currentTermValue;
-currentTermValue = nextTermValue - currentTermValue;
-
-console.log(currentTermValue);
-nextTermValue = nextTermValue + currentTermValue;
-currentTermValue = nextTermValue - currentTermValue;
-
-
-console.log(currentTermValue);
-nextTermValue = nextTermValue + currentTermValue;
-currentTermValue = nextTermValue - currentTermValue;
+for(let iteration = 1; iteration <= numberOfTerms ; iteration++){
+  console.log(currentTermValue);
+  nextTermValue = nextTermValue + currentTermValue;
+  currentTermValue = nextTermValue - currentTermValue;
+}
