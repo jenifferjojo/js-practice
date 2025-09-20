@@ -20,4 +20,4 @@ for(let iteration = 1;iteration < mapOftheSavannah.length ; iteration++){
 }
 
 closestZebraDistance = (animalNotSeen === -1) ?  animalNotSeen : closestZebraDistance;
-console.log(closestZebraDistance);
+console.log("Input:",mapOftheSavannah,"Output:",closestZebraDistance);
