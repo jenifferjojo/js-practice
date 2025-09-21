@@ -1,6 +1,5 @@
-const mapOftheSavannah = "L  Z L Z";
-let closestZebraDistance = 100;
-let animalNotSeen = -1;
+const mapOftheSavannah = "L  L L Z";
+let closestZebraDistance = 101;
 let distance = 0;
 let currentIndexValue = "";
 
@@ -15,9 +14,8 @@ for(let currentIndex = 1;currentIndex < mapOftheSavannah.length ; currentIndex++
     closestZebraDistance = closestZebraDistance > distance ? distance : closestZebraDistance ;
     currentIndexValue = mapOftheSavannah[currentIndex];
     distance = 0;
-    animalNotSeen = 1;
   }
 }
 
-closestZebraDistance = (animalNotSeen === -1) ?  animalNotSeen : closestZebraDistance;
+closestZebraDistance = (closestZebraDistance === 101) ?  -1 : closestZebraDistance;
 console.log("Input:",mapOftheSavannah,"Output:",closestZebraDistance);
