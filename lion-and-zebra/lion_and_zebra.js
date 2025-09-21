@@ -5,13 +5,13 @@ let currentIndexValue = "";
 
 currentIndexValue = mapOfSavannah[0];
 
-for(let currentIndex = 1;currentIndex < mapOfSavannah.length ; currentIndex++){
-  if(mapOfSavannah[currentIndex] === " "){
+for (let currentIndex = 1;currentIndex < mapOfSavannah.length ; currentIndex++ ){
+  if (mapOfSavannah[currentIndex] === " "){
     distance = distance + 1;
   } else if (mapOfSavannah[currentIndex] === currentIndexValue){
     distance = 0;
   } else {
-    closestZebraDistance = closestZebraDistance > distance ? distance : closestZebraDistance ;
+    closestZebraDistance = closestZebraDistance > distance ? distance : closestZebraDistance;
     currentIndexValue = mapOfSavannah[currentIndex];
     distance = 0;
   }
