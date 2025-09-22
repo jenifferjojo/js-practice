@@ -1,19 +1,22 @@
-const mapOfSavannah = "L  L L Z";
+const mapOfSavannah = " L  Z";
 let closestZebraDistance = 101;
 let distance = 0;
-let currentIndexValue = "";
+let firstLetterFound = false;
 
-currentIndexValue = mapOfSavannah[0];
+let previousAnimalSeen = " ";
 
-for (let currentIndex = 1;currentIndex < mapOfSavannah.length ; currentIndex++ ){
-  if (mapOfSavannah[currentIndex] === " "){
-    distance = distance + 1;
-  } else if (mapOfSavannah[currentIndex] === currentIndexValue){
-    distance = 0;
-  } else {
-    closestZebraDistance = closestZebraDistance > distance ? distance : closestZebraDistance;
-    currentIndexValue = mapOfSavannah[currentIndex];
-    distance = 0;
+for (let currentIndex = 0; currentIndex < mapOfSavannah.length; currentIndex++ ){
+  if (mapOfSavannah[currentIndex] !== " " || firstLetterFound){
+    firstLetterFound = true;
+    if (mapOfSavannah[currentIndex] !== " " && mapOfSavannah[currentIndex] !== previousAnimalSeen){
+      closestZebraDistance = (closestZebraDistance > distance && previousAnimalSeen !== " ") ? distance : closestZebraDistance;
+      previousAnimalSeen = mapOfSavannah[currentIndex];
+      distance = 0;
+    } else if (mapOfSavannah[currentIndex] === previousAnimalSeen){
+      distance = 0;
+    } else {
+      distance = distance + 1;
+    }
   }
 }
 
