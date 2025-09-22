@@ -1,28 +1,22 @@
-const mapOfSavannah = "    Z L ";
-let closestZebraDistance = 101;
-let distance = 0;
-let firstLetterFound = false;
+// Do not rename a, use it as input for your program.
+// While testing we will change its values.
 
-let previousAnimalSeen = " ";
+const a = 1092;
 
-for (let currentIndex = 0; currentIndex < mapOfSavannah.length; currentIndex++ ){
+// Print the prime factors of a
+// For example, if a = 12, then the output should be
+// 2
+// 2
+// 3
+// START YOUR CODE AFTER THIS LINE. DO NOT REMOVE THIS LINE
+let number = a;
 
-  if (mapOfSavannah[currentIndex] !== " " || firstLetterFound){
-    firstLetterFound = true;
-
-    if (mapOfSavannah[currentIndex] !== " " && mapOfSavannah[currentIndex] !== previousAnimalSeen){
-      closestZebraDistance = (closestZebraDistance > distance && previousAnimalSeen !== " ") ? distance : closestZebraDistance;
-      previousAnimalSeen = mapOfSavannah[currentIndex];
-      distance = 0;
-    } else if (mapOfSavannah[currentIndex] === previousAnimalSeen){
-      distance = 0;
-    } else {
-      distance = distance + 1;
-    }
-
+let primeFactor = 2;
+while ( primeFactor <= a) {
+  if ( number%primeFactor === 0) {
+    console.log(primeFactor);
+    number = number/primeFactor; 
+  } else {
+    primeFactor++;
   }
-
 }
-
-closestZebraDistance = (closestZebraDistance === 101) ?  -1 : closestZebraDistance;
-console.log("Input:",mapOfSavannah,"Output:",closestZebraDistance);
