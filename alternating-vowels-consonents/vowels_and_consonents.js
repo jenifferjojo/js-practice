@@ -7,12 +7,12 @@ function makeSubstrings(string) {
   let isPreviousVowel = false;
   let substring = "";
   let mainString = string;
-  let temporaryString = "";
+  let extractedString = "";
 
   for (let index = 0; index < mainString.length; index++) {
     
     if ((isVowel(mainString[index]) === isPreviousVowel) && substring !== "") {
-      temporaryString += mainString[index];
+      extractedString += mainString[index];
     }
 
     if ((isVowel(mainString[index]) !== isPreviousVowel) || substring === "") {
@@ -24,8 +24,8 @@ function makeSubstrings(string) {
     if (index === mainString.length - 1) {
       index = -1;
       substringString += substring + ", ";
-      mainString = temporaryString;
-      temporaryString = "";
+      mainString = extractedString;
+      extractedString = "";
       substring = "";
     }
 
