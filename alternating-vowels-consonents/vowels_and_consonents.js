@@ -1,32 +1,45 @@
+// function isVowel(character) {
+//   return (character === "a" || character === "e" || character === "i" || character === "o" || character === "u");
+// }
+
 function isVowel(character) {
-  return (character === "a" || character === "e" || character === "i" || character === "o" || character === "u");
+  const vowelString = "aeiou";
+  let index = 0;
+
+  while (index < vowelString.length) {
+    if (character === vowelString[index]) {
+      return true;
+    }
+    index++;
+  }
+
+  return false;
 }
 
 function makeSubstrings(string) {
   let substringString = "";
   let isPreviousVowel = false;
-  let substring = "";
-  let mainString = string;
   let extractedString = "";
+  let mainString = string;
+  let unusedCharacters = "";
 
   for (let index = 0; index < mainString.length; index++) {
     
-    if ((isVowel(mainString[index]) === isPreviousVowel) && substring !== "") {
-      extractedString += mainString[index];
+    if ((isVowel(mainString[index]) === isPreviousVowel) && extractedString !== "") {
+      unusedCharacters += mainString[index];
     }
 
-    if ((isVowel(mainString[index]) !== isPreviousVowel) || substring === "") {
+    if ((isVowel(mainString[index]) !== isPreviousVowel) || extractedString === "") {
+      extractedString += mainString[index];
       isPreviousVowel = isVowel(mainString[index]);
-      substring += mainString[index];
-
     }
 
     if (index === mainString.length - 1) {
       index = -1;
-      substringString += substring + ", ";
-      mainString = extractedString;
+      substringString += extractedString + ", ";
+      mainString = unusedCharacters;
+      unusedCharacters = "";
       extractedString = "";
-      substring = "";
     }
 
   }
