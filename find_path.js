@@ -81,8 +81,7 @@ function checkWon(map) {
 }
 
 function generatePath(map) {
-  console.log(map);
-  let start = (Math.floor(Math.random() * 100) % (map[1].length - 1)) + 1;
+  let start = (Math.floor(Math.random() * map[1].length)) + 1;
 
   map[1][start][0] = 1;
   map[2][start][0] = 1;
@@ -100,13 +99,11 @@ function generatePath(map) {
 
     if (directions[direction] === -1 && start !== 1) {
       map[index][--start][0] = 1;
-      // map[++index][start][0] = 1;
       directions = [-1, 0];
     }
 
     if (directions[direction] === 1 && start !== map[index].length - 1) {
       map[index][++start][0] = 1;
-      // map[++index][start][0] = 1;
       directions = [0, 1];
     }
   }
@@ -154,6 +151,10 @@ function main() {
   let guessRemaining = 5;
 
   while (guessRemaining > 0 && !checkWon(map)) {
+    let message = "Find the path between the first row and the last row";
+    message += "\nFirst 5 bombs are diffused";
+    console.log(message);
+
     const response = prompt("Enter the coordinates to reveal :");
     const coordinates = validate(response);
     
